@@ -10,7 +10,7 @@ Reads the metadata in each comic book file in a given location and places a link
 Example:
 Let's say your library is in /home/user/comics, and you choose to put the links in /home/user/comic_links.
     The script will read the metadata for all comic files in /home/user/comics and create links in /home/user/comic_links with the following structure:
-    /home/user/comic_links/<Publisher>/<Series>/<Volume>/<Series> #000 (Year-Month).cbz
+    /home/user/comic_links/<i>Publisher</i>/<i>Series,</i>/<i>Volume</i>/<i>Series #000 (Year-Month).cbz</i>
     i.e., a link would be:
     /home/user/comic_links/Marvel/X-Men/V2013/X-Men #012 (2014-05).cbz
 
