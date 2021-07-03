@@ -1,26 +1,31 @@
 """
+usage: linkcomics.py [-h] [-c] [-d] [-w] <source folder> <target folder>
+
+Creates symlinks to all your comics.
+
+positional arguments:
+  <source folder>  The folder to scan for comic files.
+  <target folder>  The folder to contain the links to comic files.
+
+optional arguments:
+  -h, --help       show this help message and exit
+  -c, --create     Creates the symlinks in the target folder.
+  -d, --delete     Deletes broken symlinks/empty directories in the target folder.
+  -w, --whatif     Simulates running the command (does not make any changes).
+
 Creates a discrete hierarchical folder structure containing links to all
 comics in a comics library (folder of .cbz files), based on the metadata
-in each file.
-
-Args:
-    -s, --source=<source folder>: 
-        The full path of the folder containing cbz files.
-    -t, --target=<target folder>:
-        The full path of the folder that will contain the generated links.
-
-    -c
-        Clean links in <target folder>. Deletes all broken links.
-    -f
-        Deletes all empty folders in <target folder>
-    -l
-        Create links of all .cbz files in the soure folder in the target
-        folder.
+in each file. The ComicInfo.xml metadata is read from each comic and a link
+is then created in the target location such that the folder structure is as
+follows:
+    <target fodler>/Publisher/Series/Volume/Series #000 (Year-Month).cbz
+Example:
+    /home/user/comic_links/Marvel/X-Men/V2009/X-Men #012 (2013-09).cbz
 """
 
 from posixpath import join
 from dataclasses import dataclass
-import sys, getopt
+import sys
 import argparse
 import os
 import zipfile
