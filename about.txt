@@ -1,0 +1,3 @@
+Link Comics plugin for calibre
+
+Written by Mike C
