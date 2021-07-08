@@ -10,10 +10,10 @@ class InterfacePluginWrapper(InterfaceActionBase):
     The reason for having two classes is that it allows the command line
     calibre utilities to run without needing to load the GUI libraries.
     '''
-    name                = 'LinkComics'
+    name                = 'Link Comics'
     description         = 'Create links to comics'
     supported_platforms = ['windows', 'osx', 'linux']
-    author              = 'Mike Cayon'
+    author              = 'dragonmc77'
     version             = (1, 0, 0)
     minimum_calibre_version = (0, 7, 53)
 
