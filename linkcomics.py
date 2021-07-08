@@ -177,7 +177,7 @@ if __name__ == "__main__":
             metadata.Series = re.sub('[\\/:;]',' - ',metadata.Series)
             metadata.Series = re.sub("[?,']",'',metadata.Series)
             metadata.Series = re.sub("\s{2,}"," ",metadata.Series)
-            metadata.Number = metadata.Number.replace("½",".5").replace("A",".1").replace("B",".2")
+            metadata.Number = metadata.Number.replace("½",".5").replace("A",".1").replace("B",".2").replace("/","-")
 
             #compile the location and name of the symlink
             target_folder = os.path.join(
@@ -199,6 +199,8 @@ if __name__ == "__main__":
             if not args.whatif: os.makedirs(target_folder, exist_ok=True)
 
             # create the link
-            if not args.whatif: 
-                if not os.path.exists(sym_link): os.symlink(cbz_path, sym_link)
+            if not args.whatif:
+                try: 
+                    if not os.path.exists(sym_link): os.symlink(cbz_path, sym_link)
+                except: print(f"SYMLINK_ERROR: {cbz_path} -> {sym_link}")
             else: print(f"{sym_link}")
